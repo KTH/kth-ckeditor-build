@@ -1,0 +1,45 @@
+{
+  "name": "@kth/kth-ckeditor-build",
+  "version": "1.4.1",
+  "description": "Custom build of the CKEditor for use in KTH websites.",
+  "main": "ckeditor/ckeditor.js",
+  "scripts": {
+    "build": "gulp build",
+    "watch": "gulp build:watch",
+    "prestart": "npm run build",
+    "server": "nodemon server/app.js",
+    "start": "npm-run-all --parallel watch server",
+    "postversion": "git push && git push --tags"
+  },
+  "keywords": [
+    "kth",
+    "ckeditor",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "ckeditor",
+    "cssOverrides",
+    "gulpfile.js",
+    "customConfig",
+    "plugins"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "hbs": "^4.0.0",
+    "jquery": "^2.2.4",
+    "kth-style": "^2.0.0-beta.7",
+    "limax": "^1.4.0",
+    "morgan": "^1.7.0",
+    "multer": "^1.1.0",
+    "npm-run-all": "^3.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:KTH/kth-ckeditor-build.git"
+  }
+}

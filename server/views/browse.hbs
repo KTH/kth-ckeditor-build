@@ -1,0 +1,80 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title" id="exampleModalLabel">Browse Files</h4>
+</div>
+<div class="modal-body">
+    {{#if files.length}}
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Filename
+                <small>(open link to preview)</small>
+            </th>
+            <th>Size</th>
+            <th>Insert</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody id="browse-content">
+        {{#each files}}
+            <tr>
+                <td><a href="{{url}}" target="_blank">{{name}}</a></td>
+                <td>{{size}}</td>
+                <td>
+                    {{#if isImage}}
+                        <button class="btn btn-xs btn-primary" data-action-image="{{url}}" title="Insert Image">
+                            <i class="glyphicon glyphicon-picture txt-color-white"></i>
+                            <span class="sr-only">Insert Image</span>
+                        </button>
+                    {{else}}
+                        <button class="btn btn-xs btn-primary disabled" title="Insert Image (disabled)">
+                            <i class="glyphicon glyphicon-picture txt-color-white"></i>
+                            <span class="sr-only">Insert Image</span>
+                        </button>
+                    {{/if}}
+                    <button class="btn btn-xs btn-primary" data-action-link="{{url}}" title="Insert Link">
+                        <i class="glyphicon glyphicon-link txt-color-white"></i>
+                        <span class="sr-only">Insert Link</span>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-xs btn-danger" data-action-delete="{{name}}" title="Delete File">
+                        <i class="glyphicon glyphicon-trash txt-color-white"></i>
+                        <span class="sr-only">Delete File</span>
+                    </button>
+                </td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+    {{else}}
+        <div class="alert alert-info">You have not uploaded any files.</div>
+    {{/if}}
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+
+<script>
+    $(function () {
+        $('#browse-content').on('click', 'button', function () {
+            var $this = $(this)
+            var $doc = $(document)
+            if ($this.data('action-image')) {
+                $doc.trigger('kth_upload.insert.image', { url: $this.data('action-image') })
+            } else if ($this.data('action-link')) {
+                $doc.trigger('kth_upload.insert.link', { url: $this.data('action-link') })
+            } else if ($this.data('action-delete')) {
+                $doc.trigger('kth_upload.delete', { id: $this.data('action-delete'), source: $this })
+            }
+        })
+
+
+        $(document).on('kth_upload.delete', function (event, data) {
+            $.post('/delete/' + data.id, function () {
+                data.source.parents('tr').remove()
+            }, 'json')
+        })
+    })
+</script>

@@ -1,0 +1,130 @@
+body > .container {
+    padding-top: 38px;
+    padding-bottom: 38px;
+}
+
+.txt-color-white {
+    color: white;
+}
+
+.disabled .glyphicon {
+    cursor: inherit;
+}
+
+@media only screen and (max-width: 976px) {
+    body {
+        margin-top: 0;
+    }
+
+    body > .container {
+        padding: 15px;
+    }
+}
+
+.bar {
+    margin: 0 0 20px;
+}
+
+.gallery {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.gallery:before,
+.gallery:after {
+    display: table;
+}
+
+.gallery:after {
+    clear: both;
+}
+
+.gallery li {
+    float: left;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid white;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    outline: 2px solid white;
+}
+
+.gallery li.selected {
+    outline-color: black;
+}
+
+.gallery a {
+    color: white;
+    text-decoration: none;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+}
+
+.gallery a span {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, .5);
+    width: 100%;
+}
+
+/* Notification */
+
+.cke_notification {
+    background: white linear-gradient(to bottom, #ddd, #aaa 20px, white 20px, #f8f8f8);
+    width: 300px;
+    padding: 30px 10px 10px;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, .5);
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    color: black;
+    position: relative;
+    font-weight: bold;
+}
+
+.cke_notification_success {
+    background: white linear-gradient(to bottom, #94c162, #34702a 20px, white 20px, #f8f8f8);
+    border: 1px solid #34702a;
+    color: #34702a;
+}
+
+.cke_notification_failure {
+    background: white linear-gradient(to bottom, #c1413d, #7c2b25 20px, white 20px, #f8f8f8);
+    border: 1px solid #7c2b25;
+    color: #7c2b25;
+}
+
+.cke_notification_message {
+    margin: 0 15px 0 0;
+}
+
+.cke_notification_close {
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    color: black;
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: bold;
+}
+
+.cke_notification_close:hover {
+    color: black;
+    text-decoration: none;
+}

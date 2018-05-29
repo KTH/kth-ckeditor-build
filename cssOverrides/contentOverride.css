@@ -1,0 +1,62 @@
+/* * * * * * * * * Body override * * * * * * * */
+
+body.cke_editable {
+    margin: 15px;
+}
+
+/* * * * * * * * * Table override style * * * * * * * */
+
+table {
+    margin: 10px 0;
+}
+
+table thead tr th {
+    border-bottom: 1px dotted #111111;
+    border-top: 1px dotted #111111;
+    border-right: 1px dotted #111111;
+    color: #111111;
+    font-size: 1.5rem;
+    padding: 5px;
+    text-align: left;
+    vertical-align: text-top;
+}
+
+table thead tr th:last-child {
+    border-right: none;
+}
+
+table tbody tr:last-child {
+    border-bottom: 1px dotted #111111;
+}
+
+table tbody tr td {
+    border-top: 1px dotted #bdbcbc;
+    border-right: 1px dotted #bdbcbc;
+    margin: 0;
+    padding: 5px;
+}
+
+table tbody tr td:last-child {
+    border-right: none;
+}
+
+/* * * * * * * * * Media override style * * * * * * * */
+
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        border: none;
+    }
+}
+
+/* Image helpers */
+/* TODO: These should probably be app specific and added through the option
+   ckeditorOptions/contentsCss */
+.cke_image_nocaption.pull-left,
+img.pull-left {
+    margin-right: 1em;
+}
+
+.cke_image_nocaption.pull-right,
+img.pull-right {
+    margin-left: 1em;
+}
