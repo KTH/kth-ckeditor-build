@@ -18,7 +18,6 @@
   ],
   "author": "",
   "license": "MIT",
-  "private": true,
   "files": [
     "ckeditor",
     "cssOverrides",
