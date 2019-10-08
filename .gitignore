@@ -5,3 +5,4 @@ node_modules
 server/uploads/*
 dist
 typings
+package-lock.json

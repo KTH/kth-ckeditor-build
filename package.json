@@ -1,6 +1,6 @@
 {
   "name": "@kth/kth-ckeditor-build",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "description": "Custom build of the CKEditor for use in KTH websites.",
   "main": "ckeditor/ckeditor.js",
   "scripts": {
@@ -9,14 +9,18 @@
     "prestart": "npm run build",
     "server": "nodemon server/app.js",
     "start": "npm-run-all --parallel watch server",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "test": "echo \"ok\""
   },
   "keywords": [
     "kth",
     "ckeditor",
     "node"
   ],
-  "author": "",
+  "author": {
+    "name": "KTH Team Webb",
+    "email": "web-developers@kth.se"
+  },
   "license": "MIT",
   "files": [
     "ckeditor",
@@ -28,17 +32,37 @@
   "devDependencies": {
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "hbs": "^4.0.0",
     "jquery": "^3.3.1",
     "kth-style": "^2.0.0-beta.7",
     "limax": "^1.4.0",
+    "merge-stream": "^2.0.0",
     "morgan": "^1.7.0",
     "multer": "^1.1.0",
-    "npm-run-all": "^3.1.0"
+    "npm-run-all": "^3.1.0",
+    "husky": "^1.3.1",
+    "prettier": "^1.16.4",
+    "pretty-quick": "1.10.0"
   },
   "repository": {
     "type": "git",
     "url": "git@github.com:KTH/kth-ckeditor-build.git"
+  },
+  "engines": {
+    "node": "8.16.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run test",
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 120
   }
 }
