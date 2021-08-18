@@ -2,6 +2,7 @@
   "name": "@kth/kth-ckeditor-build",
   "version": "4.0.0",
   "description": "Custom build of the CKEditor for use in KTH websites.",
+  "automaticPublish": "true",
   "main": "ckeditor/ckeditor.js",
   "scripts": {
     "build": "gulp build",
