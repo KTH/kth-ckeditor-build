@@ -19,7 +19,7 @@ jobs:
       - name: Run Evolene CI pipeline steps
         shell: bash
         env:
-          SLACK_CHANNELS: "#team-pipeline-build"
+          SLACK_CHANNELS: "#team-kth-webb-build"
           NPM_UPDATES_AVAILABLE: True
           BUILD_INFORMATION_OUTPUT_FILE: "/config/version.js"
         run: |
