@@ -1,6 +1,6 @@
 {
   "name": "@kth/kth-ckeditor-build",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Custom build of the CKEditor for use in KTH websites.",
   "main": "ckeditor/ckeditor.js",
   "scripts": {
