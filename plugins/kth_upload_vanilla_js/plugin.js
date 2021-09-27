@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 /* eslint-env browser */
 /* globals CKEDITOR */
-;(function () {
+;(function() {
   'use strict'
 
   CKEDITOR.plugins.add('kth_upload_vanilla_js', {
@@ -59,7 +59,7 @@
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
       xhr.setRequestHeader('Accept', 'application/json')
 
-      xhr.onload = function () {
+      xhr.onload = function() {
         if (xhr.status === 200) {
           try {
             const { url } = JSON.parse(xhr.responseText)
@@ -100,7 +100,7 @@
     },
 
     validate(editor, maxSize) {
-      return function () {
+      return function() {
         try {
           const file = this.getInputElement().$.files[0]
           if (!file) {
@@ -109,8 +109,8 @@
           }
 
           // make sure file size isn't too big
-          CKEDITOR.dialog.validate
-            .functions(function () {
+          return CKEDITOR.dialog.validate
+            .functions(function() {
               return file.size <= maxSize
             }, editor.lang.kth_upload_vanilla_js.errorSize.replace(
               '{maxSize}',
@@ -130,7 +130,7 @@
       }
 
       const img = new Image()
-      img.onload = function () {
+      img.onload = function() {
         const pluginConfig = editor.config.kth_upload
         // Add custom classes from config
         editor.insertHtml(
@@ -152,7 +152,7 @@
     },
 
     setup(accept) {
-      return function () {
+      return function() {
         this.getInputElement().setAttribute('accept', accept)
       }
     },
