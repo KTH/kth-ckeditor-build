@@ -9,6 +9,7 @@ CKEDITOR.plugins.setLang('kth_upload_vanilla_js', 'sv', {
   errorSize: 'Filen är för stor. Maximal filstorlek är {maxSize}.',
   chooseFile: 'Välj fil',
   chooseImage: 'Välj bild',
+  altText: 'Beskriv bild',
   visibility: 'Synlighet',
   visibilityPublic: 'Publik (rekommenderad)',
   visibilityPrivate: 'Inloggade användare',

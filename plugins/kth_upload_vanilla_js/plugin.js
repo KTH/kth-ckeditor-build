@@ -63,7 +63,8 @@
         if (xhr.status === 200) {
           try {
             const { url } = JSON.parse(xhr.responseText)
-            callback(null, url)
+            const altText = options.altText || ''
+            callback(null, url, altText)
           } catch (err) {
             callback(err)
           }
@@ -124,20 +125,22 @@
       }
     },
 
-    onImageUploaded(editor, err, url) {
+    onImageUploaded(editor, err, url, altText) {
       if (err) {
         return alert(err.message)
       }
+      const alt = altText || ""
 
       const img = new Image()
       img.onload = function() {
         const pluginConfig = editor.config.kth_upload
         // Add custom classes from config
         editor.insertHtml(
-          '<img src="' + url + '" alt="" class="' + ((pluginConfig && pluginConfig.imageClasses) || '') + '">'
+          '<img src="' + url + '" alt="' + alt + '" class="' + ((pluginConfig && pluginConfig.imageClasses) || '') + '">'
         )
       }
       img.src = url
+      img.alt = alt
       return true
     },
 

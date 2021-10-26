@@ -10,6 +10,7 @@ CKEDITOR.plugins.setLang('kth_upload_vanilla_js', 'en', {
   errorRequired: 'A file must be selected.',
   chooseFile: 'Choose File',
   chooseImage: 'Choose Image',
+  altText: 'Describe Image',
   visibility: 'Visibility',
   visibilityPublic: 'Public (recommended)',
   visibilityPrivate: 'All logged in users',

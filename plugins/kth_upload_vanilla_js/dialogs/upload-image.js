@@ -13,6 +13,12 @@
         setup: CKEDITOR.plugins.kth_upload_vanilla_js.setup(editor.config.kth_uploadImageAccept),
         validate: CKEDITOR.plugins.kth_upload_vanilla_js.validate(editor, editor.config.kth_uploadImageMaxSize),
       },
+      {
+        type: 'text',
+        id: 'altText',
+        label: editor.lang.kth_upload_vanilla_js.altText,
+        default: '',
+      }  
     ]
 
     if (editor.config.kth_uploadVisibility) {
@@ -58,9 +64,10 @@
             file: this.getContentElement('info', 'file').getInputElement().$.files[0],
             visibility: this.getValueOf('info', 'visibility'),
             url: editor.config.kth_uploadImageUrl,
+            altText: this.getValueOf('info', 'altText'),
           },
-          function (err, url) {
-            CKEDITOR.plugins.kth_upload_vanilla_js.onImageUploaded(editor, err, url)
+          function (err, url, altText) {
+            CKEDITOR.plugins.kth_upload_vanilla_js.onImageUploaded(editor, err, url, altText)
           }
         )
       },
