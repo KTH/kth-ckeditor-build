@@ -1,7 +1,7 @@
 /* eslint-disable no-alert */
 /* eslint-env browser */
 /* globals CKEDITOR */
-;(function() {
+;(function () {
   'use strict'
 
   CKEDITOR.plugins.add('kth_upload_vanilla_js', {
@@ -59,11 +59,11 @@
       xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
       xhr.setRequestHeader('Accept', 'application/json')
 
-      xhr.onload = function() {
+      xhr.onload = function () {
         if (xhr.status === 200) {
           try {
             const { url } = JSON.parse(xhr.responseText)
-            const altText = options.altText || ''
+            const altText = options.altText || ''
             callback(null, url, altText)
           } catch (err) {
             callback(err)
@@ -101,17 +101,17 @@
     },
 
     validate(editor, maxSize) {
-      return function() {
+      return function () {
         try {
           const file = this.getInputElement().$.files[0]
           if (!file) {
             // no file in the field
-            return CKEDITOR.dialog.validate.notEmpty(editor.lang.kth_upload_vanilla_js.errorRequired).call(this)
+            return CKEDITOR.dialog.validate.notEmpty(editor.lang.kth_upload_vanilla_js.errorFileRequired).call(this)
           }
 
           // make sure file size isn't too big
           return CKEDITOR.dialog.validate
-            .functions(function() {
+            .functions(function () {
               return file.size <= maxSize
             }, editor.lang.kth_upload_vanilla_js.errorSize.replace(
               '{maxSize}',
@@ -129,14 +129,20 @@
       if (err) {
         return alert(err.message)
       }
-      const alt = altText || ""
+      const alt = altText || ''
 
       const img = new Image()
-      img.onload = function() {
+      img.onload = function () {
         const pluginConfig = editor.config.kth_upload
         // Add custom classes from config
         editor.insertHtml(
-          '<img src="' + url + '" alt="' + alt + '" class="' + ((pluginConfig && pluginConfig.imageClasses) || '') + '">'
+          '<img src="' +
+            url +
+            '" alt="' +
+            alt +
+            '" class="' +
+            ((pluginConfig && pluginConfig.imageClasses) || '') +
+            '">'
         )
       }
       img.src = url
@@ -155,7 +161,7 @@
     },
 
     setup(accept) {
-      return function() {
+      return function () {
         this.getInputElement().setAttribute('accept', accept)
       }
     },

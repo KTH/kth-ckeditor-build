@@ -17,8 +17,12 @@
         type: 'text',
         id: 'altText',
         label: editor.lang.kth_upload_vanilla_js.altText,
-        default: '',
-      }  
+        validate: function () {
+          return CKEDITOR.dialog.validate.notEmpty(editor.lang.kth_upload_vanilla_js.errorAltTextRequired)(
+            this.getValue()
+          )
+        },
+      },
     ]
 
     if (editor.config.kth_uploadVisibility) {

@@ -7,6 +7,8 @@ CKEDITOR.plugins.setLang('kth_upload_vanilla_js', 'sv', {
   uploadImage: 'Infoga bild',
   browseFiles: 'Bläddra uppladdade filer...',
   errorSize: 'Filen är för stor. Maximal filstorlek är {maxSize}.',
+  errorFileRequired: 'Du måste välja en fil.',
+  errorAltTextRequired: 'Du måste beskriva bilden.',
   chooseFile: 'Välj fil',
   chooseImage: 'Välj bild',
   altText: 'Beskriv bild',
