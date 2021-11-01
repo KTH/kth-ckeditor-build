@@ -96,7 +96,7 @@ CKEDITOR.lang['sv'] = {
   },
   table: {
     border: 'Kantstorlek',
-    caption: 'Rubrik',
+    caption: 'Rubrik (caption)',
     cell: {
       menu: 'Cell',
       insertBefore: 'Lägg till cell före',
