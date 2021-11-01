@@ -346,7 +346,7 @@ CKEDITOR.lang['sv'] = {
   },
   list: { bulletedlist: 'Infoga/ta bort punktlista', numberedlist: 'Infoga/ta bort numrerad lista' },
   mathjax: {
-    title: 'Mattematik i TeX',
+    title: 'Matematik i TeX',
     button: 'Matte',
     dialogInput: 'Skriv din TeX här',
     docUrl: 'http://en.wikibooks.org/wiki/LaTeX/Mathematics',
