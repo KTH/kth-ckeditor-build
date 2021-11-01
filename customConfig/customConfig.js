@@ -102,7 +102,7 @@ CKEDITOR.editorConfig = function (config) {
 
     contents.remove('txtCellSpace')
     contents.remove('txtCellPad')
-    contents.remove('txtCaption')
+    // contents.remove('txtCaption')
     contents.remove('txtSummary')
     contents.remove('txtWidth')
     contents.remove('txtHeight')
@@ -111,6 +111,15 @@ CKEDITOR.editorConfig = function (config) {
     contents.remove('tableHover')
     contents.remove('tableCondensed')
     contents.remove('tableBordered')
+
+    // Remove the None option in Captions select.
+    const captionItems = contents.get('selHeaders').items
+    if (captionItems[0] && captionItems[0][1] === '') {
+      captionItems.shift()
+    }
+    contents.get('selHeaders').items = captionItems
+
+    // Set selected option in Captions select.
     contents.get('selHeaders').default = 'row'
   }
 
