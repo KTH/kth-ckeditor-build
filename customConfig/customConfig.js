@@ -14,7 +14,7 @@ CKEDITOR.editorConfig = function (config) {
     CKEDITOR.getUrl('contents.css'),
     '/vendor/bootstrap/css/bootstrap.min.css',
     '/vendor/kth-style/css/kth-bootstrap-theme.min.css',
-    CKEDITOR.getUrl('contentOverride.css')
+    CKEDITOR.getUrl('contentOverride.css'),
   ]
   config.kth_uploadImageUrl = '/upload'
   config.kth_uploadFileUrl = '/upload'
@@ -27,7 +27,7 @@ CKEDITOR.editorConfig = function (config) {
   config.extraPlugins = 'kth_upload'
   // set alignment classes for images
   config.image2_disableResizer = true
-  config.image2_alignClasses = [ 'pull-left', 'text-center', 'pull-right' ]
+  config.image2_alignClasses = ['pull-left', 'text-center', 'pull-right']
   // set extra content to allow images and image related styling
   // this is needed since we do not include the image plugin in the toolbar
   // for more details, read about the advanced content filter's automatic setting
@@ -38,62 +38,62 @@ CKEDITOR.editorConfig = function (config) {
   config.extraAllowedContent = {
     img: {
       attributes: '!src,alt,width,height',
-      classes: 'pull-left,pull-right,img-responsive'
+      classes: 'pull-left,pull-right,img-responsive',
     },
     div: {
-      classes: 'text-center,table-responsive'
+      classes: 'text-center,table-responsive',
     },
     p: {
-      classes: 'text-center'
+      classes: 'text-center',
     },
     table: {
-      classes: 'table'
-    }
+      classes: 'table',
+    },
   }
   config.toolbar = [
     {
       name: 'format',
-      items: [ 'RemoveFormat', 'Format' ]
+      items: ['RemoveFormat', 'Format'],
     },
     {
       name: 'document',
-      items: [ 'Source' ]
+      items: ['Source'],
     },
     {
       name: 'editing',
-      items: [ 'Find' ]
+      items: ['Find'],
     },
     {
       name: 'insert',
-      items: [ 'Table' ]
+      items: ['Table'],
     },
     {
       name: 'kth',
-      items: [ 'kth_upload_file', 'kth_upload_image', 'kth_upload_browse' ]
+      items: ['kth_upload_file', 'kth_upload_image', 'kth_upload_browse'],
     },
     '/',
     {
       name: 'clipboard',
-      items: [ 'Undo', 'Redo' ]
+      items: ['Undo', 'Redo'],
     },
     {
       name: 'basicstyles',
-      items: [ 'Bold', 'Italic', 'Strike', 'BulletedList', 'NumberedList', 'Outdent', 'Indent' ]
+      items: ['Bold', 'Italic', 'Strike', 'BulletedList', 'NumberedList', 'Outdent', 'Indent'],
     },
     {
       name: 'links',
-      items: [ 'Link', 'Unlink', 'Anchor', 'Mathjax', 'Embed', 'SpecialChar' ]
-    }
+      items: ['Link', 'Unlink', 'Anchor', 'Mathjax', 'Embed', 'SpecialChar'],
+    },
   ]
 
   CKEDITOR.on('instanceLoaded', function (ev) {
     var lang = ev.editor.langCode
     // set custom translation for h3 tags in format plugin
-    CKEDITOR.lang[ lang ].format.tag_h3 = lang === 'sv' ? 'Rubrik' : 'Heading'
+    CKEDITOR.lang[lang].format.tag_h3 = lang === 'sv' ? 'Rubrik' : 'Heading'
   })
 
-  function setupTableDialog (data) {
-    var names = [ 'table', 'tableProperties', 'bt_table', 'bt_tableProperties' ]
+  function setupTableDialog(data) {
+    var names = ['table', 'tableProperties', 'bt_table', 'bt_tableProperties']
     if (names.indexOf(data.name) === -1) {
       return
     }
@@ -111,10 +111,11 @@ CKEDITOR.editorConfig = function (config) {
     contents.remove('tableHover')
     contents.remove('tableCondensed')
     contents.remove('tableBordered')
+    contents.get('selHeaders').default = 'row'
   }
 
-  function setupImageDialog (data) {
-    var names = [ 'image', 'image2' ]
+  function setupImageDialog(data) {
+    var names = ['image', 'image2']
     if (names.indexOf(data.name) === -1) {
       return
     }
@@ -125,8 +126,8 @@ CKEDITOR.editorConfig = function (config) {
     contents.remove('hasCaption')
   }
 
-  function setupLinkDialog (data) {
-    var names = [ 'link' ]
+  function setupLinkDialog(data) {
+    var names = ['link']
     if (names.indexOf(data.name) === -1) {
       return
     }
@@ -134,14 +135,13 @@ CKEDITOR.editorConfig = function (config) {
     var contents = data.definition.getContents('info')
 
     contents.remove('browse')
-    contents.get('protocol')[ 'default' ] = 'https://'
+    contents.get('protocol')['default'] = 'https://'
   }
 
   // Remove unnecessary table dialog fields
   CKEDITOR.on('dialogDefinition', function (ev) {
-    [ setupTableDialog, setupImageDialog, setupLinkDialog ]
-      .forEach(function (fn) {
-        fn(ev.data)
-      })
+    ;[setupTableDialog, setupImageDialog, setupLinkDialog].forEach(function (fn) {
+      fn(ev.data)
+    })
   })
 }
