@@ -11,7 +11,7 @@ CKEDITOR.plugins.setLang('kth_upload_vanilla_js', 'sv', {
   errorAltTextRequired: 'Du måste beskriva bilden.',
   chooseFile: 'Välj fil',
   chooseImage: 'Välj bild',
-  altText: 'Beskriv bild',
+  altText: 'Alternativtext (obligatoriskt)',
   visibility: 'Synlighet',
   visibilityPublic: 'Publik (rekommenderad)',
   visibilityPrivate: 'Inloggade användare',

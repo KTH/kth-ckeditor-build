@@ -11,7 +11,7 @@ CKEDITOR.plugins.setLang('kth_upload_vanilla_js', 'en', {
   errorAltTextRequired: 'An image description is required.',
   chooseFile: 'Choose File',
   chooseImage: 'Choose Image',
-  altText: 'Describe Image',
+  altText: 'Alternative text (mandatory)',
   visibility: 'Visibility',
   visibilityPublic: 'Public (recommended)',
   visibilityPrivate: 'All logged in users',
