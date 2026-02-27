@@ -20,8 +20,9 @@
     "node"
   ],
   "author": {
-    "name": "KTH Team Webb",
-    "email": "web-developers@kth.se"
+    "name": "KTH",
+    "email": "infosys@kth.se",
+    "url": "https://github.com/KTH"
   },
   "license": "MIT",
   "files": [
