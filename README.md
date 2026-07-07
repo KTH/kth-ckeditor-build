@@ -16,34 +16,14 @@ When installing this project through npm, run the following command:
 npm install --save-dev @kth/kth-ckeditor-build
 ```
 
-In the module there is a gulp (version 4) task generator which can copy CKEditor files to the your project target directory.
-They move the plugin as well as a configuration file into your project directory.
-Here is an example how it can be used.
+To use it in your app build, copy files from `node_modules/@kth/kth-ckeditor-build` into your static asset output folder.
 
-```
-const ckGulp = require('@kth/kth-ckeditor-build/gulpfile')
-const ckEditorBuild = ckGulp.buildTask(
-  gulp,
-  './node_modules/@kth/kth-ckeditor-build',
-  './dist/js/ckeditor',
-  'profiles-web'
-)
-
-// if there is a vendor task, you can add it there
-gulp.task(
-  'vendor',
-  gulp.series([ckEditorBuild, vendor], done => {
-    done()
-  })
-)
-
-// or define as a standalone task which can  then added to the final build task
-gulp.task(
-  'ckEditorBuild',
-  gulp.series([ckEditorBuild], done => {
-    done()
-  })
-)
+```bash
+mkdir -p ./dist/js/ckeditor/plugins
+cp -R ./node_modules/@kth/kth-ckeditor-build/cssOverrides/. ./dist/js/ckeditor
+cp -R ./node_modules/@kth/kth-ckeditor-build/customConfig/customConfig.js ./dist/js/ckeditor
+cp -R ./node_modules/@kth/kth-ckeditor-build/plugins/. ./dist/js/ckeditor/plugins
+cp -R ./node_modules/@kth/kth-ckeditor-build/ckeditor/. ./dist/js/ckeditor
 ```
 
 In order for the configuration file to be used, it has to be configured in the client.
