@@ -1,8 +1,11 @@
-/* global CKEDITOR, lang */
+/* global CKEDITOR */
+
+var query = new URLSearchParams(window.location.search)
+var lang = query.get('l') === 'en' ? 'en' : 'sv'
 
 var editor = CKEDITOR.replace('editor', {
   customConfig: CKEDITOR.getUrl('customConfig.js'),
-  language: lang
+  language: lang,
 })
 
 editor.on('loaded', function () {

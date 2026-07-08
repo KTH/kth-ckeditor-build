@@ -7,9 +7,8 @@
   "scripts": {
     "build": "node scripts/build.js",
     "watch": "nodemon --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css --exec \"node scripts/build.js\"",
-    "prestart": "npm run build",
-    "server": "nodemon server/app.js",
-    "start": "npm-run-all --parallel watch server",
+    "server": "node server/app.js",
+    "start": "nodemon --watch server --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css,html --exec \"node server/app.js\"",
     "postversion": "git push && git push --tags",
     "test": "echo \"ok\"",
     "prepare": "bash -c 'if [ -f ./node_modules/.bin/husky ]; then husky install; fi'"
@@ -38,15 +37,9 @@
     "bootstrap": "^5.3.8",
     "eslint": "^7.32.0",
     "express": "^4.22.2",
-    "hbs": "^4.2.1",
     "husky": "^7.0.4",
-    "jquery": "^3.7.1",
     "kth-style": "^7.0.29",
-    "limax": "^3.0.0",
-    "morgan": "^1.11.0",
-    "multer": "^2.2.0",
     "nodemon": "^3.1.14",
-    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
     "pretty-quick": "3.3.1"
   },
