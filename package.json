@@ -5,6 +5,8 @@
   "automaticPublish": "true",
   "main": "ckeditor/ckeditor.js",
   "scripts": {
+    "lint": "eslint --quiet",
+    "lint-v": "eslint",
     "build": "node scripts/build.js",
     "watch": "nodemon --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css --exec \"node scripts/build.js\"",
     "server": "node server/app.js",
@@ -32,10 +34,10 @@
     "plugins"
   ],
   "devDependencies": {
-    "@kth/eslint-config-kth": "^2.0.2",
+    "@kth/eslint-config-kth": "^4.1.0",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^5.3.8",
-    "eslint": "^7.32.0",
+    "eslint": "^9.39.4",
     "express": "^4.22.2",
     "husky": "^7.0.4",
     "kth-style": "^7.0.29",
