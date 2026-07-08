@@ -2,30 +2,12 @@
   "name": "@kth/kth-ckeditor-build",
   "version": "4.0.0",
   "description": "Custom build of the CKEditor for use in KTH websites.",
-  "automaticPublish": "true",
-  "main": "ckeditor/ckeditor.js",
-  "scripts": {
-    "lint": "eslint --quiet",
-    "lint-v": "eslint",
-    "build": "node scripts/build.js",
-    "watch": "nodemon --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css --exec \"node scripts/build.js\"",
-    "server": "node server/app.js",
-    "start": "nodemon --watch server --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css,html --exec \"node server/app.js\"",
-    "postversion": "git push && git push --tags",
-    "test": "echo \"ok\"",
-    "prepare": "bash -c 'if [ -f ./node_modules/.bin/husky ]; then husky install; fi'"
-  },
   "keywords": [
     "kth",
     "ckeditor",
     "node"
   ],
-  "author": {
-    "name": "KTH",
-    "email": "infosys@kth.se",
-    "url": "https://github.com/KTH"
-  },
-  "license": "MIT",
+  "main": "ckeditor/ckeditor.js",
   "files": [
     "ckeditor",
     "cssOverrides",
@@ -33,6 +15,33 @@
     "customConfig",
     "plugins"
   ],
+  "scripts": {
+    "lint": "eslint --quiet",
+    "lint-v": "eslint",
+    "test": "echo \"ok\"",
+    "test:watch": "echo \"ok\"",
+    "build": "node scripts/build.js",
+    "prepare": "bash -c 'if [ -f ./node_modules/.bin/husky ]; then husky install; fi'",
+    "start": "nodemon --watch server --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css,html --exec \"node server/app.js\"",
+    "watch": "nodemon --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css --exec \"node scripts/build.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:KTH/kth-ckeditor-build.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KTH/kth-ckeditor-build/issues"
+  },
+  "homepage": "https://github.com/KTH/kth-ckeditor-build#readme",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "author": {
+    "name": "KTH",
+    "email": "infosys@kth.se",
+    "url": "https://github.com/KTH"
+  },
   "devDependencies": {
     "@kth/eslint-config-kth": "^4.1.0",
     "babel-eslint": "^10.1.0",
@@ -45,20 +54,12 @@
     "prettier": "^2.8.8",
     "pretty-quick": "3.3.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:KTH/kth-ckeditor-build.git"
-  },
-  "engines": {
-    "node": ">=16.6.2"
-  },
   "husky": {
     "hooks": {
       "pre-push": "npm run test",
       "pre-commit": "pretty-quick --staged"
     }
   },
-  "// (prettier)": "configuration version 2020-06-15 - might also reside in .prettierrc.json",
   "prettier": {
     "arrowParens": "avoid",
     "printWidth": 120,

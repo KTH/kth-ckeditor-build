@@ -2,7 +2,5 @@
 node_modules
 .idea
 *.iml
-server/uploads/*
 dist
-typings
 package-lock.json
