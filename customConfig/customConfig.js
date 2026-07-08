@@ -13,7 +13,7 @@ CKEDITOR.editorConfig = function (config) {
   config.contentsCss = [
     CKEDITOR.getUrl('contents.css'),
     '/vendor/bootstrap/css/bootstrap.min.css',
-    '/vendor/kth-style/css/kth-bootstrap-theme.min.css',
+    '/vendor/kth-style/css/kth-bootstrap.css',
     CKEDITOR.getUrl('contentOverride.css'),
   ]
   config.kth_uploadImageUrl = '/upload'
@@ -24,7 +24,7 @@ CKEDITOR.editorConfig = function (config) {
   config.removeDialogTabs = 'link:advanced;link:upload;link:target;image:advanced;'
   config.mathJaxLib = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML'
   config.language = 'sv'
-  config.extraPlugins = 'kth_upload'
+  config.extraPlugins = 'kth_upload_vanilla_js'
   // set alignment classes for images
   config.image2_disableResizer = true
   config.image2_alignClasses = ['pull-left', 'text-center', 'pull-right']
