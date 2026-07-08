@@ -21,7 +21,7 @@
     "test": "echo \"ok\"",
     "test:watch": "echo \"ok\"",
     "build": "node scripts/build.js",
-    "prepare": "bash -c 'if [ -f ./node_modules/.bin/husky ]; then husky install; fi'",
+    "prepare": "husky",
     "start": "nodemon --watch server --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css,html --exec \"node server/app.js\"",
     "watch": "nodemon --watch ckeditor --watch plugins --watch customConfig --watch cssOverrides --ext js,css --exec \"node scripts/build.js\""
   },
@@ -48,17 +48,11 @@
     "bootstrap": "^5.3.8",
     "eslint": "^9.39.4",
     "express": "^4.22.2",
-    "husky": "^7.0.4",
+    "husky": "^9.1.7",
     "kth-style": "^7.0.29",
     "nodemon": "^3.1.14",
     "prettier": "^2.8.8",
     "pretty-quick": "3.3.1"
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run test",
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "prettier": {
     "arrowParens": "avoid",
