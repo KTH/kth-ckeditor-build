@@ -5,6 +5,7 @@ const lang = query.get('l') === 'en' ? 'en' : 'sv'
 
 const editor = CKEDITOR.replace('editor', {
   customConfig: CKEDITOR.getUrl('customConfig.js'),
+  embed_provider: '/oembed?url={url}&callback={callback}', // Dummy provider
   language: lang,
 })
 

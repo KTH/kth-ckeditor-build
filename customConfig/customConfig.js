@@ -10,6 +10,7 @@ CKEDITOR.editorConfig = function (config) {
   // For complete reference see:
   // http://docs.ckeditor.com/#!/api/CKEDITOR.config
 
+  config.versionCheck = false
   config.contentsCss = [
     CKEDITOR.getUrl('contents.css'),
     '/vendor/bootstrap/css/bootstrap.min.css',
