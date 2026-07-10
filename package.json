@@ -9,6 +9,7 @@
   ],
   "main": "ckeditor/ckeditor.js",
   "files": [
+    "CHANGELOG.md",
     "ckeditor",
     "cssOverrides",
     "scripts",
@@ -27,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:KTH/kth-ckeditor-build.git"
+    "url": "git+ssh://git@github.com/KTH/kth-ckeditor-build.git"
   },
   "bugs": {
     "url": "https://github.com/KTH/kth-ckeditor-build/issues"
